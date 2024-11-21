@@ -36,7 +36,7 @@ function App() {
   const handleUpdateTitle = (value)=>{
     setCurrentEditedItem((prev)=>{
       return {...prev,title:value}
-    })
+    })  
   }
 
   const handleUpdateDescription = (value)=>{
