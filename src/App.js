@@ -126,17 +126,13 @@ function App() {
 
                 <div>
                 
-                  {/* <BsCheckLg
-                    className="check-icon"
-                    onClick={() => handleComplete(index)}
-                    title="Complete?"
-                  /> */}
+                 
                   <button
                     onClick={() => handleEdit(index, item)}
                     title="Edit?" > Edit </button>
                   <button
                     onClick={() => handleDeleteTodo(index)}
-                    title="Delete?" > Delete </button>
+                    title="Delete" > Delete </button>
                 </div>
 
               </div>
