@@ -13,22 +13,20 @@ function App() {
   const [currentEditedItem, setCurrentEditedItem] = useState("");
 
   const handleAddTodo = () => {
-    let newTodoItem = {  /// varible convert into object
+    let newTodoItem = {  
       title: newTitle,
       description: newDescription
     };
 
-    let updatedTodoArr = [...allTodos]; // array desturction..
+    let updatedTodoArr = [...allTodos]; 
     updatedTodoArr.push(newTodoItem);
     setTodos(updatedTodoArr);
     localStorage.setItem('todolist', JSON.stringify(updatedTodoArr));
   };
 
   const handleDeleteTodo = index => {
-    console.log("index =>", index)
     let reducedTodo = [...allTodos];
     reducedTodo.splice (index);
-    console.log("reducedTodo =>", reducedTodo)
     localStorage.setItem ('todolist', JSON.stringify (reducedTodo));
     setTodos (reducedTodo);
   };
@@ -96,7 +94,7 @@ function App() {
 
   const handleUpdateDescription = (value) => {
     setCurrentEditedItem((prev) => {
-      return { ...prev, description: value }
+      return { ...prev, description: value } 
     })
   }
 
@@ -136,6 +134,7 @@ function App() {
           <div className="todo-input-item">
             <button
               type="button"
+              disabled={newTitle.length < 1}
               onClick={handleAddTodo}
               className="primaryBtn"
             >
