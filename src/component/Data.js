@@ -9,7 +9,7 @@ export const userList = [
     {
         name: "parmod2 photo",
         email: "parmod2.ere@gmail.com",
-        id: 3
+        id: 2
     },
     {
         name: "parmod3  photo",

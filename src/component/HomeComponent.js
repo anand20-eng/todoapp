@@ -1,14 +1,20 @@
 import React from "react";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { deleteUser } from "./UserReducer";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(deleteUser(id))
+
+  }
   return (
     <div className="container">
       <h2> Curd App with JSON Server </h2>
       <Link to="/create" className="btn btn-success my-3"> Create </Link>
-     
+
       <table className="table">
         <thead>
           <tr>
@@ -26,7 +32,7 @@ const Home = () => {
               <td>{user.email} </td>
               <td>
                 <Link to={`/edit/${user.id}`} className="btn btn-sm btn-primary">Edit </Link>
-                <button className="btn btn-sm btn-danger ms-2">Delete </button>
+                <button onClick={() => handleDelete(user.id)} className="btn btn-sm btn-danger ms-2">Delete </button>
 
               </td> </tr>
 

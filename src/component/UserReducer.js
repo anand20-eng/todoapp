@@ -16,10 +16,14 @@ const userSlice = createSlice({
             uu.name = name;
             uu.email = email;
            }
+        },
+        deleteUser: (state, action) =>{
+            let deleteItem = state.filter(item  =>  item.id !== action.payload)
+            return deleteItem
         }
 
     }
 })
 
-export const { addUser,updateUser } = userSlice.actions;
+export const { addUser,updateUser,deleteUser } = userSlice.actions;
 export default userSlice.reducer;
