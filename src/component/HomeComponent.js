@@ -23,7 +23,7 @@ const Home = () => {
             <tr key={index}>
               <td>{user.id} </td>
               <td>{user.name} </td>
-              <td>{user.name} </td>
+              <td>{user.email} </td>
               <td>
                 <Link to={`/edit/${user.id}`} className="btn btn-sm btn-primary">Edit </Link>
                 <button className="btn btn-sm btn-danger ms-2">Delete </button>
