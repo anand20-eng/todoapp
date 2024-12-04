@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUser } from './UserReducer'
+import { useNavigate } from 'react-router-dom'
 function Create() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const users = useSelector((state) => state.users);
+  const navigate = useNavigate()
 
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
-
     dispatch(addUser({
       id: users[users.length - 1]
         .id + 1, name, email
     }))
+    navigate('/')
   }
 
   return (
