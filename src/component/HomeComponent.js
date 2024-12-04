@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   const users = useSelector((state) => state.users);
-  console.log("users =>", users)
   return (
     <div className="container">
       <h2> Curd App with JSON Server </h2>
