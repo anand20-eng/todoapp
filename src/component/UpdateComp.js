@@ -7,7 +7,7 @@ function UpdateComp() {
     const users = useSelector((state) => state.users);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const existingUser = users.filter(u => u.id == id);
+    const existingUser = users.filter(u => u.id === id);
     const { name, email } = existingUser[0];
     const [uName, setName] = useState(name);
     const [uEmail, setEmail] = useState(email)
