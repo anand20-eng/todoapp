@@ -20,9 +20,9 @@ function App() {
       <HeaderComp />
        <BrowserRouter>
       <Routes>
-        <Route path="/" element={< Cards/>}> </Route>
+        <Route path="/" element={< ShopCard/>}> </Route>
         <Route path="/CardData" element={<CardData />}> </Route>
-        <Route path="/ShopCard" element={<ShopCard />}> </Route>
+        <Route path="/Cards" element={<Cards />}> </Route>
 
         </Routes>
        </BrowserRouter>
