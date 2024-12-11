@@ -10,7 +10,7 @@ import UserReducer from './component/UserReducer'
 const store = configureStore({
   reducer: {
     users: UserReducer
-  }
+  },
 }
 )
 const root = ReactDOM.createRoot(document.getElementById('root'));

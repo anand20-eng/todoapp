@@ -2,11 +2,10 @@ import React from 'react';
 // import TodoList from './component/TodoList';
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Create from './component/Create';
-import {BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HeaderComp from './component/Card/Header'
-import ShopCard from './component/Card/shopCard';
-import CardData from './component/Card/cardData';
-import Cards from './component/Card/card';
+import ShopCard from './component/Card/shopCard'
+import CardMenu from  './component/Card/CardMenu'
 // import Home from './component/HomeComponent'
 
 function App() {
@@ -17,20 +16,20 @@ function App() {
     //   <Home />
     //   </div>
     <div>
+      <BrowserRouter>
       <HeaderComp />
-       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={< ShopCard/>}> </Route>
-        <Route path="/CardData" element={<CardData />}> </Route>
-        <Route path="/Cards" element={<Cards />}> </Route>
+
+        <Routes>
+          <Route path="/" element={< CardMenu />}> </Route>
+          <Route path="/ShopCard/:id" element={<ShopCard />}> </Route>
 
         </Routes>
-       </BrowserRouter>
+      </BrowserRouter>
     </div>
-   
-        );
+
+  );
 }
 
 
 
-        export default App;
+export default App;

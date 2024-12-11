@@ -5,6 +5,7 @@ import { deleteUser } from "./UserReducer";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
+
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(deleteUser(id))

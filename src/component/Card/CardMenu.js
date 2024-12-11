@@ -1,18 +1,24 @@
 import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import CardData from './cardData'
 import "./style.css";
 import { CardBody } from 'react-bootstrap';
+import { card_Info } from './cardInfo';
+import { useDispatch } from 'react-redux';
+import { addCard } from '../UserReducer';
+const CardMenu = () => {
+  const [data, setData] = useState(card_Info);
+  const dispatch  = useDispatch();
 
-const Cards = () => {
-  const [data, setData] = useState(CardData);
+  const send = (e) => {
+    dispatch(addCard(e));
+  }
 
   return (
     <>
-      <div className='container mt-3'>
-        <h2 className='text-center'>Add to Cart Projects</h2>
-        <div className="row d-flex justify-content-center  align-items-center">
+      <div className ='container mt-3'>
+        <h2 className ='text-center'>Add to Cart Projects</h2>
+        <div className ="row d-flex justify-content-center  align-items-center">
           {data.map((item, id) => {
             return (
               <>
@@ -26,7 +32,8 @@ const Cards = () => {
                       Price : ₹ {item.price}
                     </Card.Text>
                     <div className="button_div d-flex justify-content-center">
-                      <Button variant="primary" className="col-lg-12">
+                      <Button variant="primary" className="col-lg-12"
+                      onClick={()=> send(item)}>
                         Add to Cart </Button> </div>
 
                   </Card.Body>
@@ -43,4 +50,4 @@ const Cards = () => {
   )
 }
 
-export default Cards
+export default CardMenu;
