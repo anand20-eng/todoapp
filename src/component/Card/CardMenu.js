@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import "./style.css";
-import { CardBody } from 'react-bootstrap';
-import { card_Info } from './cardInfo';
+import { cardInfo } from './cardInfo';
 import { useDispatch } from 'react-redux';
 import { addCard } from '../UserReducer';
 const CardMenu = () => {
-  const [data, setData] = useState(card_Info);
+  const [data, setData] = useState(cardInfo);
   const dispatch  = useDispatch();
 
   const send = (e) => {
@@ -16,10 +15,10 @@ const CardMenu = () => {
 
   return (
     <>
-      <div className ='container mt-3'>
-        <h2 className ='text-center'>Add to Cart Projects</h2>
+      <div className =" container mt-3 ">
+        <h2 className ="text-center"> Add to Cart Projects </h2>
         <div className ="row d-flex justify-content-center  align-items-center">
-          {data.map((item, id) => {
+          {data.map((item) => {
             return (
               <>
                 <Card style={{ width: "22rem", border: "none" }}

@@ -1,5 +1,5 @@
 
-export  const card_Info = [
+export  const cardInfo = [
     {
         id: 1,
         rname: "Massala Theoryy",

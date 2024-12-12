@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
 import { Table } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { removeCard } from '../UserReducer'
 function ShopCard() {
   const [data, setData] = useState([]);
 
   const { id } = useParams();
-  const getDataById = useSelector((state) => state.users.card_Info);
-
-  console.log("getDataById =>", getDataById)
-
+  const getDataById = useSelector((state) => state.users.cardInfo);
+  const dispatch = useDispatch();
+  const history = useNavigate()
   const compare = () => {
     let compareCard = getDataById.filter((e) => {
       return e.id == id
     })
-    setData(compareCard); 
+    setData(compareCard);
+  }
+  const itemRemove = (id) => {
+    dispatch(removeCard(id))
+    history('/')
   }
 
+   
   useEffect(() => {
     compare();
   }, [id])
+  
   return (
     <>
       <div className="container mt-2">
@@ -56,7 +62,8 @@ function ShopCard() {
                           <td>
                             <p><strong>Rating :</strong> <span style={{ background: "green", color: "#fff", padding: "2px 5px", borderRadius: "5px" }}>{ele.rating} ★	</span></p>
                             <p><strong>Order Review :</strong> <span >{ele.somedata}	</span></p>
-                            <p><strong>Remove :</strong> <span ><i className='fas fa-trash'  style={{ color: "red", fontSize: 20, cursor: "pointer" }}></i>	</span></p>
+                            <p><strong>Remove :</strong> <span ><i className='fas fa-trash' 
+                  onClick={()=> itemRemove(ele.id)} style={{ color: "red", fontSize: 20, cursor: "pointer" }}></i>	</span></p>
                           </td>
                         </tr>
                       </Table>
@@ -69,6 +76,7 @@ function ShopCard() {
           </div>
         </section>
       </div>
+     
     </>
   )
 }

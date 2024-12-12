@@ -1,35 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { userList } from "./Data"
-import { card_Info } from "./Card/cardInfo";
 const userSlice = createSlice({
     name: "users",
     initialState: {
         userList,
-        card_Info: [],
+        cardInfo:[]
     },
     reducers: {
         addCard: (state, action) => {
-            state.card_Info.push(action.payload)
+            state.cardInfo.push(action.payload)
         },
-        addUser: (state, action) => {
-           
-        },
-        updateUser: (state, action) => {
-            const { id, name, email } = action.payload;
-            let uu = state.find(item => item.id == id);
-            if (uu) {
-                uu.name = name;
-                uu.email = email;
-            }
-        },
-        deleteUser: (state, action) => {
-            let deleteItem = state.filter(item => item.id !== action.payload)
-            return deleteItem
+        removeCard: (state, action) => {
+            const removeCard =  state.cardInfo.filter((el) => el.id !== action.payload);
+            state.cardInfo = removeCard;
+            
         }
+        // updateUser: (state, action) => {
+        //     const { id, name, email } = action.payload;
+        //     let uu = state.find(item => item.id == id);
+        //     if (uu) {
+        //         uu.name = name;
+        //         uu.email = email;
+        //     }
+        // },
+        // deleteUser: (state, action) => {
+        //     let deleteItem = state.filter(item => item.id !== action.payload)
+        //     return deleteItem
+        // }
 
     }
 })
 
-export const { addUser, updateUser, deleteUser, addCard } = userSlice.actions;
+export const { addCard, removeCard } = userSlice.actions;
 //   export const { getCardData } = userSlice.actions;
 export default userSlice.reducer;
